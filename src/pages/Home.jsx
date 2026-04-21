@@ -16,19 +16,24 @@ export default function Home() {
   return (
     <>
       <section className="hero">
-        <div className="hero-eyebrow">Computer Engineering · Texas A&M</div>
-        <h1>
-          Hardware, software, and <span className="accent">the math in between.</span>
-        </h1>
-        <p className="hero-sub">
-          I'm Devon — a computer engineering student with a minor in math, pursuing an MS in Finance.
-          I build pipelined FPGA designs, full-stack web apps, and numerical software. Incoming student
-          engineering intern at American Electric Power, summer 2026.
-        </p>
-        <div className="hero-cta">
-          <Link to="/portfolio" className="btn btn-primary">View projects →</Link>
-          <Link to="/qualifications" className="btn">Experience & education</Link>
-          <a href="mailto:dbmeyer95@gmail.com" className="btn">Get in touch</a>
+        <div className="hero-layout">
+          <div className="hero-text">
+            <div className="hero-eyebrow">Computer Engineering · Texas A&M</div>
+            <h1>Howdy, I'm Devon.</h1>
+            <p className="hero-sub">
+              I'm Devon — a computer engineering student with a minor in math, pursuing an MS in Finance.
+              I build pipelined FPGA designs, full-stack web apps, and numerical software. Incoming student
+              engineering intern at American Electric Power, summer 2026.
+            </p>
+            <div className="hero-cta">
+              <Link to="/portfolio" className="btn btn-primary">View projects →</Link>
+              <Link to="/qualifications" className="btn">Experience & education</Link>
+              <a href="mailto:dbmeyer95@gmail.com" className="btn">Get in touch</a>
+            </div>
+          </div>
+          <div className="hero-photo-wrap">
+            <img src="/meyer_devon.jpg" alt="Devon Meyer" className="hero-photo" />
+          </div>
         </div>
       </section>
 

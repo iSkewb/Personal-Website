@@ -3,6 +3,7 @@ import { writeups } from '../pages/projects/registry'
 
 export default function ProjectCard({ project }) {
   const hasWriteup = Boolean(writeups[project.slug])
+  const refId = project.slug.replace(/-/g, '').slice(0, 6).toUpperCase()
 
   return (
     <article className={'card' + (project.featured ? ' card-featured' : '')}>
@@ -20,6 +21,7 @@ export default function ProjectCard({ project }) {
         )}
       </a>
       <div className="card-body">
+        <span className="card-ref">{refId}</span>
         <div className="card-tag-row">
           {project.tags.map((t) => {
             const cls = t === 'Featured' ? 'tag tag-featured' : t === 'Hardware' ? 'tag tag-hw' : 'tag'
