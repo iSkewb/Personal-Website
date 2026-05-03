@@ -32,7 +32,7 @@ export default function Home() {
             </div>
           </div>
           <div className="hero-photo-wrap">
-            <img src="/meyer_devon.jpg" alt="Devon Meyer" className="hero-photo" />
+            <img src={import.meta.env.BASE_URL + 'meyer_devon.jpg'} alt="Devon Meyer" className="hero-photo" />
           </div>
         </div>
       </section>

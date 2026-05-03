@@ -76,7 +76,7 @@ export default function PcbDesignWriteup() {
             R2 pot) → foldback limiter → output cap → binding post.
           </p>
           <Figure
-            src="/project-images/PSU_block.png"
+            src={import.meta.env.BASE_URL + 'project-images/PSU_block.png'}
             alt="Top-level block diagram"
             caption="Figure 1 — Top-level block diagram."
           />

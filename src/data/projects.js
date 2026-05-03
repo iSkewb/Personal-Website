@@ -1,3 +1,5 @@
+const b = import.meta.env.BASE_URL
+
 export const projects = [
   {
     slug: 'qmc-lsm-fpga',
@@ -5,7 +7,7 @@ export const projects = [
     tagline: 'American option pricer — fully pipelined SystemVerilog on Spartan-7',
     tags: ['Featured', 'Hardware'],
     featured: true,
-    image: '/project-images/QMC-LSM-FPGA.png',
+    image: `${b}project-images/QMC-LSM-FPGA.png`,
     summary:
       'Production-grade streaming pipeline for pricing American options with Quasi-Monte Carlo + Longstaff-Schwartz regression. Q16.16 fixed-point throughout, ready/valid handshaking, O(1) memory via online sufficient statistics instead of path storage.',
     highlights: [
@@ -23,7 +25,7 @@ export const projects = [
     tagline: '8-tap real-time filter benchmark, hardware vs software head-to-head',
     tags: ['Featured', 'Hardware'],
     featured: true,
-    image: '/project-images/FIR_Filter.png',
+    image: `${b}project-images/FIR_Filter.png`,
     summary:
       'Built the same 8-tap low-pass FIR filter twice — once in Verilog for an FPGA and once in NumPy — then benchmarked them head-to-head on streaming financial price data.',
     highlights: [
@@ -39,7 +41,7 @@ export const projects = [
     title: 'Bench Power Supply (WIP)',
     tagline: '±1.25–15 V, 500 mA linear supply — LM317/LM337 with foldback current limiting',
     tags: ['Hardware'],
-    image: '/project-images/pcb-design.svg',
+    image: `${b}project-images/pcb-design.svg`,
     summary:
       'Dual-rail linear bench supply built as a deliberate analog learning exercise. Full-wave rectifier into LM317/LM337 regulators with foldback current limiting, thermal design, and mains-side safety. Every major failure mode — bulk-cap ripple, regulator junction heating, foldback knee — is intentionally observable on the bench.',
     highlights: [
@@ -56,7 +58,7 @@ export const projects = [
     title: 'InstruAmp PCB',
     tagline: 'Discrete 3-op-amp instrumentation amplifier — KiCad to fab, built & bench-tested',
     tags: ['Hardware'],
-    image: '/project-images/INA/InstruAmp.png',
+    image: `${b}project-images/INA/InstruAmp.png`,
     summary:
       'Took the 3-op-amp INA topology from ECEN325 Lab 4 and turned it into a real 2-layer PCB. Designed for variable gain of 19×–201×, used 1% metal-film resistors in the output stage to target ≥60 dB CMRR, and applied proper layout discipline. Board built and DC gain confirmed on the bench — within 0.5% of theory at minimum Rgain.',
     highlights: [
@@ -73,7 +75,7 @@ export const projects = [
     title: 'Ready-Alert',
     tagline: 'Drowsy driving detector — TAMU Datathon 2024',
     tags: ['ML'],
-    image: '/project-images/ready-alert.svg',
+    image: `${b}project-images/ready-alert.svg`,
     summary:
       'Web app that captures webcam frames and runs a ResNet50 transfer-learning model to classify drowsiness. Flags the driver as too drowsy if more than 65% of frames register as drowsy.',
     highlights: [
@@ -89,7 +91,7 @@ export const projects = [
     title: 'BreakFree',
     tagline: 'AI-powered subscription manager — TAMUHack 2025',
     tags: ['Web'],
-    image: '/project-images/break_free.png',
+    image: `${b}project-images/break_free.png`,
     summary:
       'Subscription tracking tool with a GPT-4o-mini advisor that analyzes flagged subscriptions alongside user profile and budget to recommend what to cut, bundle, or keep. Shipped end-to-end in one hackathon day.',
     highlights: [
@@ -105,7 +107,7 @@ export const projects = [
     title: 'Boba Tea POS',
     tagline: 'Full-stack point-of-sale system — CSCE 331 team project',
     tags: ['Web', 'Team'],
-    image: '/project-images/Boba_POS.png',
+    image: `${b}project-images/Boba_POS.png`,
     summary:
       'Multi-role POS with distinct customer, cashier, and manager workflows. Clerk OAuth for managers, PIN sessions for cashiers, and middleware-gated manager analytics, inventory, and employee management.',
     highlights: [
@@ -122,7 +124,7 @@ export const projects = [
     title: 'JKLMbot',
     tagline: 'Bomb Party word-game bot with bonus-life heuristic',
     tags: ['Automation'],
-    image: '/project-images/bomb_party.png',
+    image: `${b}project-images/bomb_party.png`,
     summary:
       'Python bot that plays JKLM.fun Bomb Party. Prioritizes words whose unique letters are still unused in the round — which earns bonus lives — over just finding any valid match.',
     highlights: [
@@ -132,4 +134,4 @@ export const projects = [
     stack: ['Python', 'pyperclip', 'keyboard', 'mouse'],
     link: 'https://github.com/iSkewb/JKLMbot'
   }
-];
+]

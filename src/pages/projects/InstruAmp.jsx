@@ -16,7 +16,7 @@ export default function InstruAmpWriteup() {
       title="InstruAmp PCB"
       subtitle="Discrete 3-op-amp instrumentation amplifier — from Lab 4 breadboard to a real 2-layer PCB. DC gain confirmed on the bench; AC characterization pending a function generator."
       heroImage={{
-        src: '/project-images/INA/InstruAmp.png',
+        src: import.meta.env.BASE_URL + 'project-images/INA/InstruAmp.png',
         alt: 'Assembled InstruAmp PCB powered from two 9 V batteries, LED lit',
         caption: 'Assembled board on first power-on — ±9 V from two Energizer 9 V batteries, power indicator LED lit immediately.'
       }}
@@ -180,7 +180,7 @@ export default function InstruAmpWriteup() {
         </SubSection>
 
         <Figure
-          src="/project-images/INA/InstruAmpSchematic.png"
+          src={import.meta.env.BASE_URL + 'project-images/INA/InstruAmpSchematic.png'}
           alt="KiCad schematic of the 3-op-amp instrumentation amplifier"
           caption="Figure 1 — KiCad schematic. U1 (top) and U2 (bottom) form the variable-gain input stage; U3 is the unity-gain output difference amplifier. RV1 + Rgmin1 set Rgain; bypass caps flank every op-amp supply pair."
         />
@@ -210,7 +210,7 @@ export default function InstruAmpWriteup() {
         </SubSection>
 
         <Figure
-          src="/project-images/INA/InstruAmp3D.png"
+          src={import.meta.env.BASE_URL + 'project-images/INA/InstruAmp3D.png'}
           alt="KiCad 3D render of the InstruAmp PCB layout"
           caption="Figure 2 — KiCad 3D view. DIP-8 sockets centered, bypass caps flanking each IC's supply pins, bulk decoupling caps at power entry (top-left), LED indicator bottom-right."
         />
@@ -327,12 +327,12 @@ export default function InstruAmpWriteup() {
           />
           <FigureGrid cols={2}>
             <Figure
-              src="/project-images/INA/InstruGainLow.png"
+              src={import.meta.env.BASE_URL + 'project-images/INA/InstruGainLow.png'}
               alt="DMM reading -324.7 mV at maximum Rgain (low gain)"
               caption="Figure 3a — Max Rgain (~1.1 kΩ, pot fully out). DMM reads −324.7 mV → implied gain ~22×; theoretical 19.2×."
             />
             <Figure
-              src="/project-images/INA/InstruGainHigh.png"
+              src={import.meta.env.BASE_URL + 'project-images/INA/InstruGainHigh.png'}
               alt="DMM reading -3.038 V at minimum Rgain (high gain)"
               caption="Figure 3b — Min Rgain (100 Ω, pot fully in). DMM reads −3.038 V → implied gain ~200×; theoretical 201×."
             />
