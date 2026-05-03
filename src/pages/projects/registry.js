@@ -4,6 +4,7 @@ import { lazy } from 'react'
 
 export const writeups = {
   template: lazy(() => import('./_Template')),
-  'pcb-design': lazy(() => import('./PcbDesign'))
+  'pcb-design': lazy(() => import('./PcbDesign')),
+  'instru-amp': lazy(() => import('./InstruAmp'))
   // Duplicate _Template.jsx and register new writeups here, keyed by slug.
 }

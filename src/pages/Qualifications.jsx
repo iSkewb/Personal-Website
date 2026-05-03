@@ -17,15 +17,6 @@ const experience = [
       'High school calculus, physics, history, and English — adapting instruction to learning style.'
     ]
   },
-  {
-    role: 'Hardware Accelerator Developer (Personal)',
-    org: 'FPGA-Based American Option Pricing — QMC & LSM',
-    when: 'May 2025 – Aug 2025',
-    bullets: [
-      'Designed a custom pipelined FPGA datapath for Monte Carlo option pricing using Sobol sequences, GBM, and Longstaff-Schwartz regression.',
-      'Integrated fixed-point math, simulation logic, and UART control into a standalone pricing engine.'
-    ]
-  }
 ]
 
 const leadership = [
@@ -77,6 +68,53 @@ const education = [
   }
 ]
 
+const service = [
+  {
+    role: 'Special Events Counselor',
+    org: 'Freshman Reaching Excellence in Engineering',
+    url: 'http://freefreshmen.com',
+    img: '/service-images/free.JPG',
+    imgAlt: 'FREE special events',
+    bullets: [
+      'Planned and executed 5 large events (retreats, formal banquet) for ~120 students.',
+      'Learned the importance of advance planning and cross-team coordination for large-scale programming.'
+    ]
+  },
+  {
+    role: 'Eagle Scout',
+    org: 'Boy Scouts of America',
+    url: 'https://www.scouting.org',
+    img: '/service-images/eagleScout.JPG',
+    imgAlt: 'Eagle Scout',
+    bullets: [
+      "Earned Scouting's highest rank; led a service project building a gaga ball pit for a local church.",
+      'Developed team leadership, timeline communication, and adaptive planning skills.'
+    ]
+  },
+  {
+    role: 'Participant — The Big Event',
+    org: 'Texas A&M University',
+    url: 'https://bigevent.tamu.edu',
+    img: '/service-images/bigEvent.JPG',
+    imgAlt: 'The Big Event',
+    bullets: [
+      "Participated twice in Texas A&M's largest single-day student-run service project.",
+      'Performed yard maintenance and community outreach in the Bryan–College Station area.'
+    ]
+  },
+  {
+    role: 'Street Cleanup Volunteer',
+    org: 'Adopt-a-Street Program — City of College Station',
+    url: 'https://www.cstx.gov',
+    img: '/service-images/streetclean.JPG',
+    imgAlt: 'Street cleanup',
+    bullets: [
+      'Cleaned streets twice per semester through the FREE service committee.',
+      'Strengthened team bonds while contributing to community beautification.'
+    ]
+  }
+]
+
 const awards = ["President's Endowed Scholar", 'Eagle Scout', "Dean's Honor Roll", 'National Merit Finalist']
 
 function Block({ title, items }) {
@@ -99,6 +137,43 @@ function Block({ title, items }) {
   )
 }
 
+function ServiceCard({ item }) {
+  return (
+    <div className="tl-item" style={{ display: 'flex', gap: 20, alignItems: 'flex-start' }}>
+      <a href={item.url} target="_blank" rel="noopener noreferrer" style={{ flexShrink: 0 }}>
+        {item.img ? (
+          <img
+            src={item.img}
+            alt={item.imgAlt}
+            style={{ width: 110, height: 110, objectFit: 'cover', borderRadius: 3, border: '1px solid var(--border)', display: 'block' }}
+          />
+        ) : (
+          <div style={{
+            width: 110, height: 110, borderRadius: 3,
+            border: '1px solid var(--border)',
+            background: 'var(--bg-elev)',
+            display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: 4,
+            backgroundImage: 'repeating-linear-gradient(45deg, transparent 0 10px, var(--border) 10px 11px)',
+          }}>
+            <span style={{ fontSize: 10, color: 'var(--text-mute)', fontFamily: 'JetBrains Mono, monospace', textAlign: 'center', padding: '0 6px' }}>{item.imgAlt}</span>
+          </div>
+        )}
+      </a>
+      <div style={{ flex: 1, minWidth: 0 }}>
+        <div className="tl-head">
+          <h3>
+            <a href={item.url} target="_blank" rel="noopener noreferrer" style={{ color: 'inherit' }}>
+              {item.role}
+            </a>
+          </h3>
+        </div>
+        <div className="tl-org">{item.org}</div>
+        <ul>{item.bullets.map((b, i) => <li key={i}>{b}</li>)}</ul>
+      </div>
+    </div>
+  )
+}
+
 export default function Qualifications() {
   return (
     <>
@@ -114,6 +189,14 @@ export default function Qualifications() {
 
       <Block title="Experience" items={experience} />
       <Block title="Leadership & Involvement" items={leadership} />
+
+      <section className="section">
+        <div className="section-head"><h2>Service</h2></div>
+        <div className="timeline">
+          {service.map((item, i) => <ServiceCard key={i} item={item} />)}
+        </div>
+      </section>
+
       <Block title="Education" items={education} />
 
       <section className="section">

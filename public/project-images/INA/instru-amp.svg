@@ -1,0 +1,123 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="gia" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0d0c08"/>
+      <stop offset="1" stop-color="#191408"/>
+    </linearGradient>
+    <pattern id="giadots" width="28" height="28" patternUnits="userSpaceOnUse">
+      <circle cx="14" cy="14" r="0.7" fill="#2a2415"/>
+    </pattern>
+  </defs>
+
+  <!-- Background -->
+  <rect width="640" height="360" fill="url(#gia)"/>
+  <rect width="640" height="360" fill="url(#giadots)"/>
+
+  <!-- Title -->
+  <text x="60" y="50" font-family="'Inter', sans-serif" font-size="13" fill="#7a889c" font-weight="500">Analog · KiCad · 2-layer PCB</text>
+  <text x="60" y="75" font-family="'Inter', sans-serif" font-size="22" fill="#e6e9ef" font-weight="700">InstruAmp PCB</text>
+
+  <!-- ── Schematic traces (main color: #d4a443) ── -->
+
+  <!-- Backbone at x=122 (Rgain + feedback return path) -->
+  <!-- Top section: y=103 down to Rgain rect top y=193, including U1- branch junction at y=163 -->
+  <line x1="122" y1="103" x2="122" y2="193" stroke="#d4a443" stroke-width="1.4" fill="none"/>
+  <!-- Bottom section: Rgain rect bottom y=243 down to y=320, including U2- branch junction at y=270 -->
+  <line x1="122" y1="243" x2="122" y2="320" stroke="#d4a443" stroke-width="1.4" fill="none"/>
+
+  <!-- Rgain resistor box (center of backbone, y=193 to y=243) -->
+  <rect x="114" y="193" width="16" height="50" rx="2" fill="#0d0c08" stroke="#d4a443" stroke-width="1.5"/>
+
+  <!-- U1 - branch: from U1 - input (158,163) left to backbone junction (122,163) -->
+  <line x1="158" y1="163" x2="122" y2="163" stroke="#d4a443" stroke-width="1.4"/>
+  <!-- U2 - branch: from backbone junction (122,270) right to U2 - input (158,270) -->
+  <line x1="122" y1="270" x2="158" y2="270" stroke="#d4a443" stroke-width="1.4"/>
+
+  <!-- Rf1 feedback: horizontal at y=103 from backbone (122,103) to U1 output path (233,103) -->
+  <line x1="122" y1="103" x2="233" y2="103" stroke="#d4a443" stroke-width="1.2" opacity="0.75"/>
+  <!-- Rf1 box on that horizontal line -->
+  <rect x="163" y="96" width="42" height="14" rx="2" fill="#0d0c08" stroke="#d4a443" stroke-width="1.2" opacity="0.85"/>
+
+  <!-- Rf2 feedback: horizontal at y=320 from backbone (122,320) to U2 output path (233,320) -->
+  <line x1="122" y1="320" x2="233" y2="320" stroke="#d4a443" stroke-width="1.2" opacity="0.75"/>
+  <!-- Rf2 box -->
+  <rect x="163" y="313" width="42" height="14" rx="2" fill="#0d0c08" stroke="#d4a443" stroke-width="1.2" opacity="0.85"/>
+
+  <!-- U1 output vertical: tip (233,152) up to Rf1 line (233,103) -->
+  <line x1="233" y1="103" x2="233" y2="152" stroke="#d4a443" stroke-width="1.4"/>
+  <!-- U2 output vertical: tip (233,259) down to Rf2 line (233,320) -->
+  <line x1="233" y1="259" x2="233" y2="320" stroke="#d4a443" stroke-width="1.4"/>
+
+  <!-- Vin+ input line: (70,140) → (158,140) into U1 + -->
+  <line x1="70" y1="140" x2="158" y2="140" stroke="#d4a443" stroke-width="1.5"/>
+  <!-- Vin- input line: (70,247) → (158,247) into U2 + -->
+  <line x1="70" y1="247" x2="158" y2="247" stroke="#d4a443" stroke-width="1.5"/>
+
+  <!-- U1 output → U3 + input: (233,152) → (323,152) → (323,194) → (400,194) -->
+  <polyline points="233,152 323,152 323,194 400,194" stroke="#d4a443" stroke-width="1.5" fill="none"/>
+  <!-- U2 output → U3 - input: (233,259) → (365,259) → (365,222) → (400,222) -->
+  <polyline points="233,259 365,259 365,222 400,222" stroke="#d4a443" stroke-width="1.5" fill="none"/>
+
+  <!-- Vout: U3 tip (478,208) → (562,208) -->
+  <line x1="478" y1="208" x2="562" y2="208" stroke="#d4a443" stroke-width="1.5"/>
+
+  <!-- ── Op-amp triangles ── -->
+  <g fill="none" stroke="#d4a443" stroke-width="1.6" stroke-linejoin="round">
+    <!-- U1 -->
+    <path d="M 158 118 L 158 185 L 233 152 Z"/>
+    <!-- U2 -->
+    <path d="M 158 225 L 158 292 L 233 259 Z"/>
+    <!-- U3 -->
+    <path d="M 400 168 L 400 248 L 478 208 Z"/>
+  </g>
+
+  <!-- ── Junction dots (filled) ── -->
+  <g fill="#d4a443">
+    <!-- U1 output (connects Rf1 path + U3 route) -->
+    <circle cx="233" cy="152" r="3.5"/>
+    <!-- U2 output (connects Rf2 path + U3 route) -->
+    <circle cx="233" cy="259" r="3.5"/>
+    <!-- U1 - node on backbone -->
+    <circle cx="122" cy="163" r="3"/>
+    <!-- U2 - node on backbone -->
+    <circle cx="122" cy="270" r="3"/>
+  </g>
+
+  <!-- ── Labels ── -->
+  <g font-family="'JetBrains Mono', monospace" fill="#d4a443">
+
+    <!-- +/- on U1 -->
+    <text x="162" y="138" font-size="9" opacity="0.8">+</text>
+    <text x="162" y="168" font-size="9" opacity="0.8">−</text>
+    <!-- +/- on U2 -->
+    <text x="162" y="245" font-size="9" opacity="0.8">+</text>
+    <text x="162" y="275" font-size="9" opacity="0.8">−</text>
+    <!-- +/- on U3 -->
+    <text x="404" y="192" font-size="9" opacity="0.8">+</text>
+    <text x="404" y="226" font-size="9" opacity="0.8">−</text>
+
+    <!-- Op-amp names (inside triangles) -->
+    <text x="192" y="156" font-size="10" text-anchor="middle" opacity="0.9">U1</text>
+    <text x="192" y="262" font-size="10" text-anchor="middle" opacity="0.9">U2</text>
+    <text x="434" y="213" font-size="10" text-anchor="middle" opacity="0.9">U3</text>
+
+    <!-- Input / output node labels -->
+    <text x="55" y="137" font-size="10" opacity="0.9">Vin+</text>
+    <text x="55" y="244" font-size="10" opacity="0.9">Vin−</text>
+    <text x="487" y="204" font-size="10" opacity="0.9">Vout</text>
+
+    <!-- Rgain label (left of the resistor box) -->
+    <text x="108" y="222" font-size="9" text-anchor="end" opacity="0.9">Rg</text>
+
+    <!-- Rf labels on feedback resistor boxes -->
+    <text x="184" y="93" font-size="8" text-anchor="middle" opacity="0.65">Rf</text>
+    <text x="184" y="330" font-size="8" text-anchor="middle" opacity="0.65">Rf</text>
+
+  </g>
+
+  <!-- Subtle stage labels at bottom -->
+  <g font-family="'Inter', sans-serif" font-size="10" fill="#7a889c" opacity="0.55">
+    <text x="196" y="345" text-anchor="middle">input stage</text>
+    <text x="439" y="345" text-anchor="middle">diff stage</text>
+  </g>
+</svg>

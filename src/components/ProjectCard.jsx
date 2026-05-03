@@ -8,11 +8,11 @@ export default function ProjectCard({ project }) {
   return (
     <article className={'card' + (project.featured ? ' card-featured' : '')}>
       <a
-        href={project.link}
+        href={project.demo || project.link}
         target="_blank"
         rel="noreferrer"
         className="card-media"
-        aria-label={project.title + ' — view on GitHub'}
+        aria-label={project.demo ? project.title + ' — view live demo' : project.title + ' — view on GitHub'}
       >
         {project.image ? (
           <img src={project.image} alt={project.title} loading="lazy" />
@@ -42,7 +42,12 @@ export default function ProjectCard({ project }) {
           </div>
           <div className="card-links">
             {hasWriteup && (
-              <Link className="card-link" to={`/projects/${project.slug}`}>Read writeup →</Link>
+              <Link className="btn btn-primary" style={{ fontSize: 13, padding: '6px 14px' }} to={`/projects/${project.slug}`}>Read writeup →</Link>
+            )}
+            {project.demo && (
+              <a className="card-link" href={project.demo} target="_blank" rel="noreferrer">
+                Live ↗
+              </a>
             )}
             {project.link && (
               <a className="card-link" href={project.link} target="_blank" rel="noreferrer">
