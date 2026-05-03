@@ -28,7 +28,12 @@ export default function ProjectCard({ project }) {
             return <span key={t} className={cls}>{t}</span>
           })}
         </div>
-        <h3>{project.title}</h3>
+        <div style={{ display: 'flex', alignItems: 'baseline', gap: 10, flexWrap: 'wrap' }}>
+          <h3 style={{ margin: 0 }}>{project.title}</h3>
+          {hasWriteup && (
+            <Link className="btn btn-primary" style={{ fontSize: 12, padding: '4px 12px', whiteSpace: 'nowrap', flexShrink: 0 }} to={`/projects/${project.slug}`}>Read writeup →</Link>
+          )}
+        </div>
         <div className="tagline">{project.tagline}</div>
         <p>{project.summary}</p>
         {project.highlights?.length > 0 && (
@@ -41,9 +46,6 @@ export default function ProjectCard({ project }) {
             {project.stack.map((s) => <span key={s} className="stack-item">{s}</span>)}
           </div>
           <div className="card-links">
-            {hasWriteup && (
-              <Link className="btn btn-primary" style={{ fontSize: 13, padding: '6px 14px' }} to={`/projects/${project.slug}`}>Read writeup →</Link>
-            )}
             {project.demo && (
               <a className="card-link" href={project.demo} target="_blank" rel="noreferrer">
                 Live ↗

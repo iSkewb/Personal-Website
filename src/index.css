@@ -320,6 +320,67 @@ main { max-width: var(--max); margin: 0 auto; padding: 0 28px 96px; }
 
 .card-links { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; }
 
+/* ---------- Light Theme ---------- */
+[data-theme="light"] {
+  --bg: #f4f0e8;
+  --bg-elev: #ece6d8;
+  --bg-card: #faf8f3;
+  --border: #d0c8b4;
+  --text: #1c1a14;
+  --text-dim: #5a5040;
+  --text-mute: #9a8e7c;
+  --accent: #a05c18;
+  --accent-2: #1d7a42;
+  --accent-warm: #a87a0a;
+}
+
+[data-theme="light"] body {
+  background:
+    radial-gradient(circle, rgba(29,122,66,0.07) 1px, transparent 1px),
+    radial-gradient(900px 500px at 5% 0%, rgba(160,92,24,0.06), transparent 55%),
+    var(--bg);
+  background-size: 22px 22px, 100% 100%, auto;
+}
+
+[data-theme="light"] .nav {
+  box-shadow: 0 1px 0 rgba(29,122,66,0.1);
+}
+
+[data-theme="light"] .btn-primary {
+  color: #fff;
+}
+
+[data-theme="light"] .card:hover {
+  box-shadow: 0 8px 24px rgba(0,0,0,0.09);
+}
+
+[data-theme="light"] .card-media:hover::after {
+  background: rgba(0,0,0,0.07);
+}
+
+[data-theme="light"] .log-entry::before {
+  border-color: var(--bg);
+}
+
+/* ---------- Theme toggle button ---------- */
+.theme-toggle {
+  background: none;
+  border: 1px solid var(--border);
+  border-radius: 3px;
+  color: var(--text-dim);
+  cursor: pointer;
+  font-size: 15px;
+  line-height: 1;
+  padding: 6px 10px;
+  transition: all 0.15s ease;
+  margin-left: 4px;
+}
+.theme-toggle:hover {
+  color: var(--text);
+  border-color: var(--accent);
+  background: var(--bg-elev);
+}
+
 /* ---------- Books ---------- */
 .books-controls { display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; margin-bottom: 28px; }
 .chip-row { display: flex; gap: 8px; flex-wrap: wrap; }
