@@ -68,12 +68,14 @@ const education = [
   }
 ]
 
+const b = import.meta.env.BASE_URL
+
 const service = [
   {
     role: 'Special Events Counselor',
     org: 'Freshman Reaching Excellence in Engineering',
     url: 'http://freefreshmen.com',
-    img: '/service-images/free.JPG',
+    img: `${b}service-images/free.JPG`,
     imgAlt: 'FREE special events',
     bullets: [
       'Planned and executed 5 large events (retreats, formal banquet) for ~120 students.',
@@ -84,7 +86,7 @@ const service = [
     role: 'Eagle Scout',
     org: 'Boy Scouts of America',
     url: 'https://www.scouting.org',
-    img: '/service-images/eagleScout.JPG',
+    img: `${b}service-images/eagleScout.JPG`,
     imgAlt: 'Eagle Scout',
     bullets: [
       "Earned Scouting's highest rank; led a service project building a gaga ball pit for a local church.",
@@ -95,7 +97,7 @@ const service = [
     role: 'Participant — The Big Event',
     org: 'Texas A&M University',
     url: 'https://bigevent.tamu.edu',
-    img: '/service-images/bigEvent.JPG',
+    img: `${b}service-images/bigEvent.JPG`,
     imgAlt: 'The Big Event',
     bullets: [
       "Participated twice in Texas A&M's largest single-day student-run service project.",
@@ -106,7 +108,7 @@ const service = [
     role: 'Street Cleanup Volunteer',
     org: 'Adopt-a-Street Program — City of College Station',
     url: 'https://www.cstx.gov',
-    img: '/service-images/streetclean.JPG',
+    img: `${b}service-images/streetclean.JPG`,
     imgAlt: 'Street cleanup',
     bullets: [
       'Cleaned streets twice per semester through the FREE service committee.',
